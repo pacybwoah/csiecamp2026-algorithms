@@ -1,0 +1,141 @@
+\input{coconut-theme.tex}
+
+\title{椰子傳書遊戲}
+\subtitle{說明簡報}
+
+\begin{document}
+
+% 頁尾：小小的椰子島
+\setbeamertemplate{footline}{%
+  \hbox{}\hfill
+  \raisebox{2pt}{\textcolor{ocean!70}{\footnotesize 椰島 · 椰子傳書}}\hspace{0.4em}
+  \raisebox{1pt}{\textcolor{coconut}{\footnotesize\insertframenumber}}\hspace{0.5em}\vspace{2pt}}
+
+% ---------- 封面 ----------
+{\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \centering
+  \vspace{0.5cm}
+  {\Huge\bfseries\textcolor{deepsea}{椰子傳書}}\\[0.2cm]
+  {\LARGE\textcolor{ocean}{說明簡報}}\\[0.5cm]
+  \begin{tikzpicture}
+    \fill[ocean!25] (-5,-0.6) rectangle (5,0.1);
+    \fill[sand] (0,0.05) ellipse (1.7 and 0.45);
+    \begin{scope}[shift={(0,0.05)}]\upsidedowntree\end{scope}
+  \end{tikzpicture}\\[0.3cm]
+  {\large\textcolor{coconut}{2026 資訊營 · 算法大地 · 關卡五}}
+\end{frame}}
+
+% ---------- 劇情 ----------
+\begin{frame}{劇情}
+  \vspace{0.8em}
+  \begin{oceanbox}
+    \begin{itemize}
+      \item 作為椰子國的探險隊，你發現了一些神秘的椰子殼碎片。碎片上有著重要的文字，但它們散落在島嶼各處 \twemoji{pensive}
+      \item 小隊隊員每人只能看到一個碎片，你們的目標是透過有限的溝通得知資訊。（椰子島上 1GB 網路要一千塊）
+      \item 因為另一隊也在努力解謎，你們還要讓敵方猜不出你們的策略！
+    \end{itemize}
+  \end{oceanbox}
+  \vspace{1em}
+  \begin{center}
+  \begin{tikzpicture}[scale=1.1]
+    \fill[sun!70] (-3.4,1.6) circle (0.35);
+    \fill[ocean!25] (-4.2,-0.7) rectangle (4.2,-0.1);
+    % 椰子島
+    \fill[sand] (2.4,-0.15) ellipse (1.5 and 0.4);
+    \begin{scope}[shift={(2.4,-0.05)}]\upsidedowntree\end{scope}
+    % 獨木舟
+    \draw[line width=3pt, coconut] (-2.6,-0.45) .. controls (-1.8,0.05) and (-1.0,0.05) .. (-0.2,-0.45) -- cycle;
+    \fill[coconut!80] (-2.5,-0.45) .. controls (-1.8,-0.05) and (-1.0,-0.05) .. (-0.3,-0.45) -- cycle;
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{遊戲說明}
+  \begin{itemize}
+    \item 講台前方有十張朝下的\textbf{卡牌}（椰子殼碎片）。
+    \item 小隊各自分配 1-10 號，依序上臺：
+      \item 每個隊員只能看\textbf{一張牌}的內容。
+      \item 看完之後，可以在白板上留下一個 \textbf{0-9 的數字}。
+      \item 每個隊員看得到上一個隊員在白板留的數字。
+      \item 最後一個隊員要回答跟這些卡牌有關的問題，越準得分越高！
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{椰子傳書 - 範例}
+  \begin{itemize}
+    \item 範例關卡：%% punch, 270c, 1f590
+      \begin{itemize}
+        \item 有兩張牌，每張是剪刀、石頭、布的其中一個
+        \item 胖椰、瘦椰的\textbf{目標}：回答是左邊營、右邊贏、還是平手。
+      \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \twemoji[height=1.2in]{270c} \twemoji[height=1.2in]{punch} \twemoji[height=1.2in]{1f590}
+  \end{center}
+\end{frame}
+
+\begin{frame}{椰子傳書 - 範例}
+  \begin{itemize}
+    \item 一個可行的\textbf{策略}：
+      \begin{itemize}
+        \item 胖椰跟瘦椰說好：0 代表剪刀、1 代表石頭、2 代表布。
+        \item 胖椰先看左邊那張牌，看完他把代表的數字寫在白板上。
+        \item 瘦椰看白板就知道左邊出什麼。
+        \item 瘦椰再看右邊的牌，就知道問題的答案了！
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{遊戲說明}
+  \begin{itemize}
+    \item 除了回答問題得分，也可以透過「猜另一隊回答什麼」得分。
+    \item 看完卡片的隊員會進到第二間教室，第二間教室有實況轉播。
+    \begin{itemize}
+      \item 看得到牌的內容、其他人翻了什麼牌、在白板寫了什麼。
+    \end{itemize}
+    \item 在兩隊的 10 號隊員回答前，1-9 號隊員可以看到敵隊的戰術，你們要試著破解對方的戰術。
+    \item 如果 1-9 號隊員猜對敵隊的 10 號隊員回答什麼，就可以得分。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{椰子傳書}
+  你們的目標是：
+  \begin{itemize}
+    \item 找出好的策略讓自己得分。
+    \item 隱藏自己的策略，讓對方看不出來你在幹嘛。
+    \item 同時，試著看破對方在幹嘛。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{藏寶遊戲 - 第一回合}
+  \begin{itemize}
+    \item 第一回合中，卡牌是 \textbf{0-9} 的數字，十張卡牌組合成一個\textbf{十位數的數字}。
+    \item 10 號成員要回答：「這個數字除以 7 的餘數是幾？」
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{藏寶遊戲 - 第一回合}
+ 範例：
+  \begin{center}
+    \twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 4}\twemoji[height=0.4in]{keycap: 7}\twemoji[height=0.4in]{keycap: 9}\twemoji[height=0.4in]{keycap: 9}\twemoji[height=0.4in]{keycap: 0}\twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 4}\twemoji[height=0.4in]{keycap: 5} \newline
+    \onslide<2->$2479902245$ 除以 $7 = 354271749$ 餘 $2 \Rightarrow$ 回答 $2$
+  \end{center}
+\end{frame}
+
+\begin{frame}{藏寶遊戲 - 第二回合}
+  \begin{itemize}
+    \item 第二回合中，卡牌會是\textbf{紅色椰子}或是\textbf{藍色椰子}（綠色椰子被吃光了）
+    \item 10 號成員要回答：「\twemoji{red circle}\twemoji{blue circle}\twemoji{red circle} 在卡牌裡面出現幾次？」
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{藏寶遊戲 - 第二回合}
+  範例：
+  \begin{center}
+    \twemoji[height=0.4in]{blue circle}\twemoji[height=0.4in]{red circle}\twemoji[height=0.4in]{blue circle}\twemoji[height=0.4in]{red circle}\twemoji[height=0.4in]{blue circle}\twemoji[height=0.4in]{red circle}\twemoji[height=0.4in]{red circle}\twemoji[height=0.4in]{blue circle}\twemoji[height=0.4in]{red circle}\twemoji[height=0.4in]{red circle} \newline
+    \onslide<2->{2-4、4-6、7-9 都是\twemoji{red circle}\twemoji{blue circle}\twemoji{red circle}，所以算出現三次。}
+  \end{center}
+\end{frame}
+
+\end{document}

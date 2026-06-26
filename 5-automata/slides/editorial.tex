@@ -1,0 +1,196 @@
+\input{coconut-theme.tex}
+
+\title{椰島字謎}
+\subtitle{題解}
+
+\begin{document}
+
+% ---------- 封面 ----------
+{\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \centering
+  \vspace{0.7cm}
+  {\Huge\bfseries\textcolor{deepsea}{椰島字謎}}\\[0.2cm]
+  {\LARGE\textcolor{ocean}{題解}}\\[0.6cm]
+  \begin{tikzpicture}
+    \foreach \c/\d [count=\i from 0] in {wgray/0,wyellow/1,wgreen/2}{
+      \node[fill=\c,text=white,minimum size=1cm,font=\bfseries\LARGE,rounded corners=2pt] at (\i*1.2,0){\d};}
+  \end{tikzpicture}\\[0.3cm]
+  {\large\textcolor{coconut}{把顏色變成數字，用糾錯碼打敗搗蛋猴}}
+\end{frame}}
+
+% ---------- 弱弱的作法 ----------
+\begin{frame}{弱弱的作法}
+  \begin{leafbox}[title=想法]
+    椰弟每個詢問都\textbf{重複問三次}。
+  \end{leafbox}
+  \vspace{0.6em}
+  因為搗蛋猴\textbf{最多只能改一次}，所以三次回饋中的\textbf{多數}一定是正確的。
+  \vspace{1em}
+  \begin{center}
+  \begin{tikzpicture}
+    \foreach \c [count=\i from 0] in {wgreen,wgreen,wgreen}{
+      \node[fill=\c,minimum size=0.7cm,rounded corners=2pt] at (\i*0.8,0){};}
+    \node at (3.1,0){\small 第一次};
+    \foreach \c [count=\i from 0] in {wgreen,wgreen,wgreen}{
+      \node[fill=\c,minimum size=0.7cm,rounded corners=2pt] at (\i*0.8,-0.9){};}
+    \node at (3.1,-0.9){\small 第二次};
+    \foreach \c [count=\i from 0] in {wyellow,wgreen,wgreen}{
+      \node[fill=\c,minimum size=0.7cm,rounded corners=2pt] at (\i*0.8,-1.8){};}
+    \node[coral] at (3.4,-1.8){\small 第三次（被改）};
+  \end{tikzpicture}
+  \end{center}
+  \begin{center}\small\textcolor{coconut!70!black}{代價：每個詢問都要花\textbf{三倍}次數。}\end{center}
+\end{frame}
+
+% ---------- 好一點點 ----------
+\begin{frame}{好一點點的作法}
+  \begin{leafbox}[title=想法]
+    每個詢問先\textbf{重複問兩遍}就好；如果兩遍\textbf{不一樣}，再問\textbf{第三遍}。
+  \end{leafbox}
+  \vspace{0.8em}
+  \begin{itemize}
+    \item 兩遍\textbf{相同} → 沒被動過手腳，直接採用。
+    \item 兩遍\textbf{不同} → 一定有一遍被改了，問第三遍用多數決。
+  \end{itemize}
+  \vspace{0.6em}
+  \begin{center}\small\textcolor{coconut!70!black}{
+  平常只花兩倍，運氣不好才需要第三次。}\end{center}
+\end{frame}
+
+% ---------- 還 OK ----------
+\begin{frame}{還 OK 的作法}
+  \begin{leafbox}[title=想法]
+    椰弟就\textbf{正常玩 Wordle}，每個問題只問一次。
+  \end{leafbox}
+  \vspace{0.6em}
+  當阿椰\textbf{發現自己的回答被改掉}時，下一次回答\textbf{無論如何都塗上全綠}，
+  象徵「\textbf{出事了！}」── 椰弟看到全綠就知道上一回合作廢，\textbf{再問一次}。
+  \vspace{0.8em}
+  \begin{center}
+  \begin{tikzpicture}
+    \foreach \i in {0,...,4}{
+      \node[fill=wgreen,minimum size=0.85cm,rounded corners=2pt,text=white,font=\bfseries] at (\i*1.0,0){};}
+    \node[coral,font=\bfseries] at (2.0,-0.95){全綠暗號：上一格被搗蛋猴改了！};
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% ---------- 聰明的作法 ----------
+\begin{frame}{聰明的作法}
+  發現到：答案是\textbf{五個字母}的英文單字，每個字元有 \textbf{26 種}可能。
+  \vspace{0.6em}
+  \begin{oceanbox}[title=關鍵轉念]
+    如果我們把\textbf{每個字母都用三格顏色}來表示……\\
+    那麼「顏色」就不只是回饋，而是一條\textbf{傳訊的通道}！
+  \end{oceanbox}
+  \vspace{0.6em}
+  阿椰可以\textbf{故意選擇顏色}，把答案的「編號」一格一格地傳給椰弟。
+\end{frame}
+
+% ---------- 三進位 ----------
+\begin{frame}{三進位！}
+  讓 \tile{wgray}{} \textbf{灰 = 0}、\tile{wyellow}{} \textbf{黃 = 1}、\tile{wgreen}{} \textbf{綠 = 2}，
+  用\textbf{三格}表示一個字元（$0\sim26$）。例如 \texttt{apple}：
+  \vspace{1em}
+  \begin{center}
+  \begin{tikzpicture}
+    % a = 0 = 000
+    \node[font=\bfseries\large] at (-1.6,0){a = 0 =};
+    \foreach \c [count=\i from 0] in {wgray,wgray,wgray}{
+      \node[fill=\c,minimum size=0.8cm,rounded corners=2pt,text=white,font=\bfseries] at (\i*0.9,0){0};}
+    % p = 16 = 121
+    \node[font=\bfseries\large] at (-1.6,-1.3){p = 16 =};
+    \foreach \c/\d [count=\i from 0] in {wyellow/1,wgreen/2,wyellow/1}{
+      \node[fill=\c,minimum size=0.8cm,rounded corners=2pt,text=white,font=\bfseries] at (\i*0.9,-1.3){\d};}
+    \node at (3.2,-1.3){\small $=1\cdot3^2+2\cdot3^1+1\cdot3^0$};
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% ---------- Provably Optimal ----------
+\begin{frame}{Provably Optimal 作法}
+  \begin{sunbox}[title=巧合？才不是]
+    一開始給的\textbf{單字表剛好有 729 個字}，也就是 $3^6$。\\
+    所以答案的編號只要 \textbf{6 格三進位}就裝得下！
+  \end{sunbox}
+  \vspace{0.8em}
+  \begin{center}
+  \begin{tikzpicture}
+    \foreach \c/\d [count=\i from 0] in {wgray/0,wgreen/2,wyellow/1,wgreen/2,wgray/0,wyellow/1}{
+      \node[fill=\c,minimum size=0.85cm,rounded corners=2pt,text=white,font=\bfseries\large] at (\i*0.95,0){\d};}
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.8em}
+  \begin{center}\textcolor{coral}{\textbf{但是……還是有可能被搗蛋猴搖掉一格 }\coconuticon[0.8]}\end{center}
+\end{frame}
+
+% ---------- ECC ----------
+\begin{frame}{Error Correction Code（糾錯碼）}
+  \begin{oceanbox}
+    \large
+    \textbf{錯誤更正碼（ECC）}是電腦科學家為了\textbf{更正雜訊}對訊號的干擾，
+    所發明的技術。
+  \end{oceanbox}
+  \vspace{0.8em}
+  搗蛋猴改掉一格顏色，就像\textbf{通訊雜訊}弄壞了一個位元。
+  我們的目標：\textbf{即使有一格被改，也能還原出原本的訊息}。
+\end{frame}
+
+% ---------- Parity ----------
+\begin{frame}{Parity（同位檢查）}
+  糾錯碼裡很常見的想法：把所有數字\textbf{相加再取餘數（mod 3）}。
+  \vspace{0.8em}
+  \begin{center}
+  \begin{tabular}{ccl}
+    \texttt{10120} & $\rightarrow$ & \textbf{1} \quad\small$(1{+}0{+}1{+}2{+}0=4\equiv1)$\\[0.3em]
+    \texttt{21012} & $\rightarrow$ & \textbf{0} \quad\small$(2{+}1{+}0{+}1{+}2=6\equiv0)$\\[0.3em]
+    \texttt{00011} & $\rightarrow$ & \textbf{2} \quad\small$(0{+}0{+}0{+}1{+}1=2\equiv2)$\\
+  \end{tabular}
+  \end{center}
+  \vspace{0.8em}
+  算出這個檢查碼後，我們就能知道：這串訊息\textbf{是不是被動過手腳}。
+\end{frame}
+
+% ---------- 保證修正 ----------
+\begin{frame}{一個保證修正的方法}
+  假設要傳送的是一串\textbf{長度 6 的顏色}，表示三進位的答案編號。用\textbf{兩行}來傳：
+  \vspace{0.5em}
+  \begin{leafbox}[title=第一行]
+    照常傳\textbf{前五個}顏色。
+  \end{leafbox}
+  \vspace{0.3em}
+  \begin{oceanbox}[title=第二行]
+    \begin{itemize}\small
+      \item 第 1 格：第\textbf{六}個顏色。
+      \item 第 2 格：前六個的 \textbf{Parity}（同位檢查）。
+      \item 剩下三格：
+        \begin{itemize}
+          \item 若第一行\textbf{被改掉} → 放「\textbf{哪一格}被改」以及「\textbf{原本是什麼顏色}」。
+          \item 若第一行\textbf{沒被改} → 三格\textbf{全放第六個顏色}。
+        \end{itemize}
+    \end{itemize}
+  \end{oceanbox}
+  \vspace{0.3em}
+  \begin{center}\textcolor{deepsea}{\textbf{這樣就能保證修正搗蛋猴造成的那一個錯誤！}}\end{center}
+\end{frame}
+
+% ---------- 補充：漢明距離 ----------
+\begin{frame}{補充：為什麼行得通？（漢明距離）}
+  \begin{itemize}
+    \item 兩個碼字相差幾格，稱為\textbf{漢明距離（Hamming distance）}。
+    \item 要能\textbf{修正 $t$ 個錯誤}，任兩個合法碼字的距離必須 $\ge 2t+1$。
+    \item 搗蛋猴只改\textbf{一格}（$t=1$）$\Rightarrow$ 只要碼字\textbf{兩兩距離 $\ge 3$} 就保證可救回。
+  \end{itemize}
+  \vspace{0.6em}
+  \begin{leafbox}[title=本 repo 的小工具]
+    \small
+    \texttt{generate.py} / \texttt{generate.cpp} 正是用\textbf{貪婪法}搜尋
+    「字母表大小 $k$、長度 $n$、最小距離 $d$」的碼
+    （例如 $k=3,\,d=3$ 的三進位單錯更正碼）。
+  \end{leafbox}
+  \vspace{0.5em}
+  \begin{center}\large\textcolor{deepsea}{\textbf{祝椰子小隊順利登島！}} \coconuticon\end{center}
+\end{frame}
+
+\end{document}
