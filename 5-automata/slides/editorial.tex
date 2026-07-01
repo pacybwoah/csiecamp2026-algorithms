@@ -111,11 +111,20 @@
 
 \begin{frame}{題解 - 第二回合}
   \begin{itemize}
-    \item 有可能是 $0, 1, 2, 3, 4$ 五種答案
-    \item 我們可以把「五種答案」跟「三種狀態」組合在一起
-      \item 總共需要 $5 \times 3 = 15$ 個數字表達這兩個特徵
-      \item 剛好可以用 $1$ 到 $15$ 表示！
-      \item 有辦法用更少的數字，有興趣的隊員可以想想看！
+    \item 有可能是 $0, 1, 2, 3, 4, 5$ 五種答案
+    \item 我們可以把「六種答案」跟「三種狀態」組合在一起
+      \item 總共需要 $6 \times 3 = 18$ 個數字表達這兩個特徵
+      \item 但是總共只有 $16$ 個數字可以用 \twemoji{thinking face}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{題解 - 第二回合}
+  \begin{itemize}
+    \item 有可能是 $0, 1, 2, 3, 4, 5$ 五種答案
+    \item 但是答案如果是 $5$，會需要剛好 $11$ 張牌
+    \item 牌會剛好用完，所以「狀態」是什麼就不重要了
+    \item 只要用一個數字表達這個情況 $\Rightarrow$ 總共 $5 \times 3 + 1 = 16$
+    \item 剛好塞得下！
   \end{itemize}
 \end{frame}
 
