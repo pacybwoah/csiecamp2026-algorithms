@@ -1,15 +1,16 @@
 import random
+PLAYER_COUNT = 12
 while True:
-    number = random.randint(0, 2 ** 12 - 1)
+    number = random.randint(0, 2 ** PLAYER_COUNT - 1)
     arr = []
-    for i in range(0, 12):
+    for i in range(0, PLAYER_COUNT):
         if number % 2 == 1:
             arr.append(1)
         else:
             arr.append(0)
         number //= 2
     cnt = 0
-    for i in range(0, 10):
+    for i in range(0, PLAYER_COUNT - 2):
         if arr[i] == 1 and arr[i + 1] == 0 and arr[i + 2] == 1:
             cnt += 1
     if cnt > 0:
