@@ -53,46 +53,43 @@
 
 \begin{frame}{遊戲說明}
   \begin{itemize}
-    \item 講台前方有 12 張朝下的\textbf{卡牌}（椰子殼碎片）。
-    \item 小隊各自分配 1 - 12 號，依序上臺：
+    \item 講台前方有 12 張朝下的\textbf{卡牌}（椰子殼碎片），上面寫 1-9 的數字。
+    \item 12 張牌一字排開，組成一個 12 位數的數字。
+    \item 小隊各自分配 1-12 號，依序上臺：
       \item 每個隊員只能看\textbf{一張牌}的內容。
-      \item 看完之後，可以在白板上留下一個 \textbf{0-15 的整數}。
+      \item 看完之後，可以在白板上留下一個 \textbf{非負整數}。
+      \begin{itemize}
+        \item 可以是任意非負整數，但數字越小越好
+      \end{itemize}
       \item 每個隊員看得到上一個隊員在白板留的數字。
-      \item 最後一個隊員不用看牌，他要回答跟這些卡牌有關的問題，越準得分越高。
+      \item 最後一個隊員看完牌後，要在白板上寫下「這個數字除以 7 的餘數是幾？」
   \end{itemize}
 \end{frame}
 
-\begin{frame}{椰子傳書 - 範例}
-  \begin{itemize}
-    \item 範例關卡：%% punch, 270c, 1f590
-      \begin{itemize}
-        \item 有兩張牌，每張是剪刀、石頭、布的其中一個
-        \item 胖椰、瘦椰的\textbf{目標}：回答是左邊贏、右邊贏、還是平手。
-      \end{itemize}
-  \end{itemize}
-  \begin{center}
-    \twemoji[height=1.2in]{270c} \twemoji[height=1.2in]{punch} \twemoji[height=1.2in]{1f590}
-  \end{center}
-\end{frame}
+% \begin{frame}{椰子傳書 - 範例}
+%   \begin{itemize}
+%     \item 範例關卡：%% punch, 270c, 1f590
+%       \begin{itemize}
+%         \item 有兩張牌，每張是剪刀、石頭、布的其中一個
+%         \item 胖椰、瘦椰的\textbf{目標}：回答是左邊贏、右邊贏、還是平手。
+%       \end{itemize}
+%   \end{itemize}
+%   \begin{center}
+%     \twemoji[height=1.2in]{270c} \twemoji[height=1.2in]{punch} \twemoji[height=1.2in]{1f590}
+%   \end{center}
+% \end{frame}
 
-\begin{frame}{椰子傳書 - 範例}
-  \begin{itemize}
-    \item 一個可行的\textbf{策略}：
-      \begin{itemize}
-        \item 胖椰跟瘦椰說好：0 代表剪刀、1 代表石頭、2 代表布。
-        \item 胖椰先看左邊那張牌，看完他把代表的數字寫在白板上。
-        \item 瘦椰看白板就知道左邊出什麼。
-        \item 瘦椰再看右邊的牌，就知道問題的答案了！
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{椰子傳書 - 第一回合}
-  \begin{itemize}
-    \item 第一回合中，卡牌是 \textbf{1-9} 的數字，十張卡牌組合成一個\textbf{十位數的數字}。
-    \item 12 號小隊員要回答：「這個數字除以 7 的餘數是幾？」
-  \end{itemize}
-\end{frame}
+% \begin{frame}{椰子傳書 - 範例}
+%   \begin{itemize}
+%     \item 一個可行的\textbf{策略}：
+%       \begin{itemize}
+%         \item 胖椰跟瘦椰說好：0 代表剪刀、1 代表石頭、2 代表布。
+%         \item 胖椰先看左邊那張牌，看完他把代表的數字寫在白板上。
+%         \item 瘦椰看白板就知道左邊出什麼。
+%         \item 瘦椰再看右邊的牌，就知道問題的答案了！
+%       \end{itemize}
+%   \end{itemize}
+% \end{frame}
 
 \begin{frame}{椰子傳書 - 第一回合}
  範例：
@@ -121,22 +118,40 @@
       \item 看一張牌跟白板的數字
       \item 把白板數字擦掉，寫上自己的
     \end{itemize}
+    \item 每個人限制 30 秒
+    \item 目標是要在最快的時間內、只用最小的數字溝通，得到正確的答案
   \end{itemize}
 \end{frame}
 
 \begin{frame}{椰子傳書 - 回合過程}
   \begin{itemize}
     \item 如果只有一隊答對，那一隊獲勝
-    \item 如果兩隊都答對，那\textbf{最快的}那一隊獲勝
+    \item 如果兩隊都答對，那我們會對每一隊計算\textbf{分數}：
     \begin{itemize}
-      \item \textbf{不能用計算機}，所以策略越簡單越好
+      \item 假設 $x$ 是你們隊作答過程中白板下寫的最大數字，$t$ 是總共花的時間（秒）
+      \item 那你們的分數會是 $\left\lceil \frac{x}{15} \right\rceil \cdot t$，$\left\lceil \text{ } \right\rceil$ 意思是向上取整
     \end{itemize}
+    \item 分數比較低的隊伍獲勝！
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{椰子傳書 - 回合過程}
+  \begin{itemize}
+    \item 如果沒時間要怎麼辦：
+    \item 可以直接把全部數字寫在白板上，只是分數會很高 \twemoji{pensive}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{椰子傳書 - 第二回合}
   \begin{itemize}
-    \item 第二回合中，卡牌會是\textbf{紅色椰子}或是\textbf{黑色椰子}（棕色椰子被吃光了）
+    \item 第二回合的設定跟第一回合一樣
+    \begin{itemize}
+      \item 大家要排成一列，每個人看一張牌、在白板寫一個數字
+    \end{itemize}
+    \item 差別在於\textbf{牌代表的意思不一樣}，現在牌只分成\textbf{紅色椰子}（紅色的牌 \twemoji{red circle}）跟\textbf{黑色椰子}（黑色的牌 \twemoji{black circle}）
+    \begin{itemize}
+      \item 棕色椰子都被吃光了
+    \end{itemize}
     \item 12 號隊員要回答：「\twemoji{red circle}\twemoji{black circle}\twemoji{red circle} 在卡牌裡面出現幾次？」
   \end{itemize}
 \end{frame}
@@ -153,6 +168,13 @@
   \begin{itemize}
     \item 跟第一回合一樣！
     \item 我們用紅色撲克牌代表紅色椰子、黑色撲克牌代表黑色椰子
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{椰子傳書 - 第三回合}
+  \begin{itemize}
+    \item 第三回合中，每張牌的花色代表他的椰子屬性
+    \item 12 號隊員要回答：「這 12 張牌中，總共有幾個花色？」
   \end{itemize}
 \end{frame}
 
