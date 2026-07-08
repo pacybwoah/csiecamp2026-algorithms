@@ -51,9 +51,9 @@
 \begin{frame}{椰子國}
   \centering
   \vspace{0.1em}
-  \includegraphics[width=0.75\textwidth]{coconut_map.png}\\[0.2em]
+  \includegraphics[width=0.55\textwidth]{coconut.png}\\[0.2em]
   {\footnotesize\textcolor{coconut!70!black}{
-  每個椰子代表一顆椰子樹！椰子樹間有\textbf{步道}，椰子島民只能在步道間行走。}}
+  這時椰子國的地圖。每個圈圈代表一顆椰子樹！椰子樹間有\textbf{步道}，椰子島民只能在步道間行走。}}
   \vspace{0.3em}
 \end{frame}
 
@@ -63,34 +63,42 @@
     \item 瘦椰跟胖椰在玩遊戲，他的目標是找到寶藏。
       \item 每一回合，瘦椰會選擇一棵椰子樹挖寶藏。
         \item 如果挖到寶藏，遊戲結束！
-        \item 如果沒有挖到寶藏，胖椰會給瘦椰\textbf{提示}：胖椰會選擇一棵椰子樹，並跟瘦椰說：比起你剛剛選的椰子樹，這棵離寶藏比較近。
+        \item 如果沒有挖到寶藏，胖椰要給瘦椰\textbf{提示}：胖椰會選擇一棵椰子樹，並跟瘦椰說：比起你剛剛選的椰子樹，這棵離寶藏比較近。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{藏寶遊戲}
+  \begin{itemize}
+    \item 「近」的定義：
+    \item 定義兩個椰子樹 $A$ 跟 $B$ 間的「距離」為：透過椰子島上的步島從 $A$ 走到 $B$，需要經過的最少步道數量。
+    \item 胖椰要選的椰子樹，它離寶藏的「距離」要嚴格比瘦椰挖寶藏的地方離寶藏的「距離」來得小。
   \end{itemize}
 \end{frame}
 
 \begin{frame}{藏寶遊戲 - 範例}
   \centering
   \vspace{0.1em}
-  \includegraphics[width=0.75\textwidth]{coconut_treasure.png}\\[0.2em]
+  \includegraphics[width=0.55\textwidth]{coconut_treasure_2.png}\\[0.2em]
   {\footnotesize\textcolor{coconut!70!black}{
-  胖椰選擇在 0 號樹下藏寶藏。}}
+  胖椰選擇在 18 號樹下藏寶藏。}}
   \vspace{0.3em}
 \end{frame}
 
 \begin{frame}{藏寶遊戲 - 範例}
   \centering
   \vspace{0.1em}
-  \includegraphics[width=0.75\textwidth]{coconut_guess.png}\\[0.2em]
+  \includegraphics[width=0.6\textwidth]{coconut_guess_2.png}\\[0.2em]
   {\footnotesize\textcolor{coconut!70!black}{
-  瘦椰猜測寶藏在 1 號樹下。}}
+  瘦椰猜測寶藏在 0 號樹下。}}
   \vspace{0.3em}
 \end{frame}
 
 \begin{frame}{藏寶遊戲 - 範例}
   \centering
   \vspace{0.1em}
-  \includegraphics[width=0.75\textwidth]{coconut_reply.png}\\[0.2em]
+  \includegraphics[width=0.57\textwidth]{coconut_reply_2.png}\\[0.2em]
   {\footnotesize\textcolor{coconut!70!black}{
-  15、0、16 號樹離寶藏更近。胖椰要選一棵樹給瘦椰提示，他選擇 15 號樹。}}
+  比起 0 號樹，綠色、黃色標示的樹離寶藏（18 號樹）更近。胖椰要選一棵樹給瘦椰提示，他選擇 17 號樹。}}
   \vspace{0.3em}
 \end{frame}
 
@@ -107,7 +115,6 @@
     \item 進攻隊目標是猜越少回合越好，防守隊目標是守越多回合越好。
     \item 結束後，兩隊攻守交換。
     \item 挖最少椰子數的隊伍獲勝！
-    \item 有時間的話會進行第二回合，第二回合中，胖椰可以\textbf{說謊}兩次...
   \end{itemize}
 \end{frame}
 
@@ -118,7 +125,8 @@
     \item 防守隊先選一棵椰子樹藏寶藏。
     \item 接著每回合：
       \item 進攻隊選一棵椰子樹猜測，時限 30 秒。
-      \item 防守隊選一棵椰子樹回答，時限 20 秒。
+      \item 防守隊選一棵椰子樹回答，時限 30 秒。
+      \item 如果 30 秒結束，還沒有做出決定的話，系統會幫你們隊隨機挑選一個合法的回答。
       % \item 希望組內能輪流操控電腦，大家都有玩遊戲的機會。
     \item 前面有一些椰子國的地圖，大家可以拿幾張地圖在上面規劃戰術。
   \end{itemize}
@@ -126,10 +134,18 @@
 
 \begin{frame}{藏寶遊戲 - 第二回合}
   \begin{itemize}
-    \item 第二回合的規則跟第一回合一樣，只是胖椰太壞了，他可以\textbf{說謊}兩次！
-      \item 只要在網站上勾選說謊的選項，就可以說謊了。
-    \item 再給大家 3 分鐘討論戰術。
+    \item 當你們玩的興高采烈時，椰子議會通過了預算案，在 15 號椰子樹和 28 號椰子樹中間興建了一座橋！
+    \item 瘦椰和胖椰一樣想要在新的椰子國地圖上面玩藏寶遊戲，但加上了這座橋，一切都變複雜了...
   \end{itemize}
+\end{frame}
+
+\begin{frame}{藏寶遊戲 - 第二回合}
+   \centering
+  \vspace{0.1em}
+  \includegraphics[width=0.57\textwidth]{coconut_jellyfish.png}\\[0.2em]
+  {\footnotesize\textcolor{coconut!70!black}{
+  新的椰子國地圖。}}
+  \vspace{0.3em}
 \end{frame}
 
 \end{document}
