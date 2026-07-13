@@ -56,6 +56,9 @@
     \item 講台前方有 12 張朝下的\textbf{卡牌}（椰子殼碎片），上面寫 1-9 的數字。
     \item 12 張牌一字排開，組成一個 12 位數的數字。
     \item 小隊各自分配 1-12 號，依序上臺：
+    \begin{itemize}
+      \item 不夠的話請隊輔和隨輔一起玩 \twemoji{pleading face}
+    \end{itemize}
       \item 每個隊員只能看\textbf{一張牌}的內容。
       \item 看完之後，可以在白板上留下一個 \textbf{非負整數}。
       \begin{itemize}
@@ -94,8 +97,8 @@
 \begin{frame}{椰子傳書 - 第一回合}
  範例：
   \begin{center}
-    \twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 4}\twemoji[height=0.4in]{keycap: 7}\twemoji[height=0.4in]{keycap: 9}\twemoji[height=0.4in]{keycap: 9}\twemoji[height=0.4in]{keycap: 1}\twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 4}\twemoji[height=0.4in]{keycap: 5} \newline
-    \onslide<2->$2479912245$ 除以 $7 = 354273177$ 餘 $6 \Rightarrow$ 回答 $6$
+    \twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 4}\twemoji[height=0.4in]{keycap: 7}\twemoji[height=0.4in]{keycap: 9}\twemoji[height=0.4in]{keycap: 9}\twemoji[height=0.4in]{keycap: 1}\twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 2}\twemoji[height=0.4in]{keycap: 4}\twemoji[height=0.4in]{keycap: 5}\twemoji[height=0.4in]{keycap: 6}\twemoji[height=0.4in]{keycap: 1} \newline
+    \onslide<2->$247991224561$ 除以 $7 = 35427317794$ 餘 $3 \Rightarrow$ 回答 $3$
   \end{center}
 \end{frame}
 
@@ -118,7 +121,6 @@
       \item 看一張牌跟白板的數字
       \item 把白板數字擦掉，寫上自己的
     \end{itemize}
-    \item 每個人限制 30 秒
     \item 目標是要在最快的時間內、只用最小的數字溝通，得到正確的答案
   \end{itemize}
 \end{frame}
@@ -130,8 +132,25 @@
     \begin{itemize}
       \item 假設 $x$ 是你們隊作答過程中白板下寫的最大數字，$t$ 是總共花的時間（秒）
       \item 那你們的分數會是 $\left\lceil \frac{x}{15} \right\rceil \cdot t$，$\left\lceil \text{ } \right\rceil$ 意思是向上取整
+      \item 只要數字都在 $15$ 以內、又夠快，就可以拿到最好的分數
     \end{itemize}
     \item 分數比較低的隊伍獲勝！
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{椰子傳書 - 回合過程}
+  \begin{itemize}
+    \item 如果只有一隊答對，那一隊獲勝
+    \item 如果兩隊都答對，那我們會對每一隊計算\textbf{分數}：
+    \begin{itemize}
+      \item 假設 $x$ 是你們隊作答過程中白板下寫的最大數字，$t$ 是總共花的時間（秒）
+      \item 那你們的分數會是 $\left\lceil \frac{x}{15} \right\rceil \cdot t$，$\left\lceil \text{ } \right\rceil$ 意思是向上取整
+      \item 只要數字都在 $15$ 以內、又夠快，就可以拿到最好的分數
+    \end{itemize}
+    \item 分數比較低的隊伍獲勝！
+    \begin{itemize}
+      \item 我們會根據你的分數給你資訊營的錢錢
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -171,11 +190,11 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{椰子傳書 - 第三回合}
-  \begin{itemize}
-    \item 第三回合中，每張牌的花色代表他的椰子屬性
-    \item 12 號隊員要回答：「這 12 張牌中，總共有幾個花色？」
-  \end{itemize}
-\end{frame}
+% \begin{frame}{椰子傳書 - 第三回合}
+%   \begin{itemize}
+%     \item 第三回合中，每張牌的花色代表他的椰子屬性
+%     \item 12 號隊員要回答：「這 12 張牌中，總共有幾個花色？」
+%   \end{itemize}
+% \end{frame}
 
 \end{document}
