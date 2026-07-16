@@ -71,6 +71,24 @@
   \vspace{0.3em}
 \end{frame}
 
+\begin{frame}
+% Side-by-side figures
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.75\linewidth]{edi_before.png}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.75\linewidth]{edi_after.png}
+  \label{fig:test2}
+\end{minipage}
+\caption{「拔掉」4 之後，剩下的椰子島}
+\end{figure}
+\end{frame}
+
 \begin{frame}{思考策略}
   \begin{itemize}
     \item 因此，自然的想法就是猜\textbf{中間一點}的，因為這樣有機會把左邊所有人或是右邊所有人全部丟掉
@@ -83,9 +101,9 @@
   \begin{itemize}
     \item 這樣子最壞情況是多少呢？
     \item 搜索空間大小變成 $1$ 就代表一定猜到了
-    \item 一開始搜索空間大小是 $32$，每次至少除以 $2$
-    \item 如果學過對數：$\frac{32}{2^x} \leq 1 \Rightarrow \log_{2} 32 \leq x \Rightarrow 5 \leq x$
-    \item 最多猜 $5$ 次就成功了！
+    \item 一開始搜索空間大小是 $64$，每次至少除以 $2$ （至少把一半的點刪掉）
+    \item 如果學過對數：$\frac{64}{2^x} \leq 1 \Rightarrow \log_{2} 64 \leq x \Rightarrow 6 \leq x$
+    \item 最多猜 $6$ 次就成功了！
   \end{itemize}
 \end{frame}
 
@@ -96,61 +114,26 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{可以說謊？}
+\begin{frame}{思考策略}
   \begin{itemize}
-    \item 可以說謊怎麼辦？
-    \item 一些策略：
-    \begin{itemize}
-      \item 可以說 2 次謊我就問同樣東西問 3 次
-      \item 在紙上記錄每個點被「刪掉」幾次，被刪掉 3 次就確定不行了
-      \item 猜看起來可以刪掉蠻多的東西的點
-    \end{itemize}
+    \item 這種「把搜索空間變一半」的想法在演算法的世界很常見
+    \item 像是大家可能有聽過「二分搜」，原理就是這樣
   \end{itemize}
 \end{frame}
 
-\begin{frame}{可以說謊？}
+\begin{frame}{第二回合}
   \begin{itemize}
-    \item 可以說謊怎麼辦？
-    \item 最佳策略（補充）：
-    \begin{itemize}
-      \item 我們還是想讓「搜索空間」每次變一半，但有些點已經被刪 3 次了，再刪他也沒用
-    \end{itemize}
+    \item 先思考一下，如果只剩下中間那個「環」，戰術要怎麼設計？
+    \item\onslide<2->{先隨便選中間「環」上那個點，然後「環」就會被切成兩半}
+    \item\onslide<3->{剩下的搜索空間就沒有「環」了}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{可以說謊？}
+\begin{frame}{第二回合}
   \begin{itemize}
-    \item 可以說謊怎麼辦？
-    \item 最佳策略（補充）：
-    \begin{itemize}
-      \item 被刪兩次的點感覺比被刪一次的點還不可能很多
-      \item 把「減 $1$」改成「除以 $2$」
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{可以說謊？}
-  \begin{itemize}
-    \item 可以說謊怎麼辦？
-    \item 最佳策略（補充）：
-    \begin{itemize}
-      \item 每個點上面寫一個數字，一開始為 $1$
-      \item 每次一樣選「最中間」的地方
-      \item 把「要說謊才能是寶藏」的地方都除以 $2$
-      \item 每次「所有點的總和」都會被除以 $2$
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{可以說謊？}
-  \begin{itemize}
-    \item 可以說謊怎麼辦？
-    \item 最佳策略（補充）：
-    \begin{itemize}
-      \item 正確答案只能被說兩次謊，所以他上面的數字只會被除 $2$ 次 $\Rightarrow \geq \frac 1 4$
-      \item 只要「所有點的總和」$\leq \frac 1 4$ 就可以確定最佳答案了！
-      \item 一開始是 $32$，要變 $\leq \frac 1 4$，只要除以二 $7$ 次就變 $\frac 1 4 \Rightarrow$ 得到答案了
-    \end{itemize}
+    \item 換到這張地圖上，也可以第一次隨便選一個中間「環」上的點
+    \item 第一次猜完後，地圖會被切成兩半，可以直接用第一回合的策略
+    \item 只要猜 $6 + 1$ 次就好了！
   \end{itemize}
 \end{frame}
 
